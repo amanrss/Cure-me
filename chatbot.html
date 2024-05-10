@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+</head>
+<body>
+    <textarea id="question" rows="4" cols="50" placeholder="Ask a question..."></textarea><br>
+    <button onclick="sendQuestion()">Send</button><br>
+    <div id="answer"></div>
+
+    <script>
+        async function sendQuestion() {
+            const question = document.getElementById('question').value;
+            const responseDiv = document.getElementById('answer');
+
+            try {
+                const response = await fetch('/chatbot', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ question: question })
+                });
+
+                const data = await response.json();
+                responseDiv.innerText = data.answer;
+            } catch (error) {
+                console.error('Error:', error);
+                responseDiv.innerText = 'Failed to fetch answer from the server. Please try again later.';
+            }
+        }
+    </script>
+</body>
+</html>

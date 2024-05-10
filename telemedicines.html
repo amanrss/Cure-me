@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telemedicine Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #66b89d;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Slideshow styles */
+        .slideshow-container {
+            position: relative;
+            max-width: 800px;
+            margin-bottom: 40px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .slides {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 24px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Description styles */
+        .description {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #66b89d;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .fa-heart {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Telemedicine Solutions</h1>
+    </header>
+
+    <div class="container">
+        <div class="slideshow-container">
+            <div class="slides fade">
+                <img src="https://images.unsplash.com/photo-1593642532442-ea2bf3e275ee" alt="Telemedicine Image 1">
+            </div>
+            <div class="slides fade">
+                <img src="https://images.unsplash.com/photo-1598625047044-b5a4cfc72066" alt="Telemedicine Image 2">
+            </div>
+            <div class="slides fade">
+                <img src="https://images.unsplash.com/photo-1604261552207-ec7b3f2ee480" alt="Telemedicine Image 3">
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)"><i class="fas fa-chevron-left"></i></a>
+            <a class="next" onclick="plusSlides(1)"><i class="fas fa-chevron-right"></i></a>
+        </div>
+
+        <p class="description">
+            Telemedicine is the practice of providing remote healthcare services using technology. It enables patients to consult with healthcare providers through video calls, mobile apps, and messaging platforms. Telemedicine offers convenience, accessibility, and efficiency, particularly benefiting those in remote areas or with mobility issues. It's revolutionizing healthcare delivery by improving access to care and patient outcomes.
+        </p>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Telemedicine Solutions. Made with <i class="fas fa-heart"></i> by YourCompany</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("slides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+    </script>
+</body>
+</html>
